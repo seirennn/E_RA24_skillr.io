@@ -146,13 +146,13 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "skillr",
+      "name": "io",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-11T19:26:46.091097Z",
+  "generated": "2024-02-11T19:48:44.300104Z",
   "generator": "pub",
   "generatorVersion": "3.2.6"
 }

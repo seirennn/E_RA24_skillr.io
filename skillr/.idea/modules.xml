@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/skillr.iml" filepath="$PROJECT_DIR$/skillr.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/skillr_android.iml" filepath="$PROJECT_DIR$/android/skillr_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io.iml" filepath="$PROJECT_DIR$/io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/io_android.iml" filepath="$PROJECT_DIR$/android/io_android.iml" />
     </modules>
   </component>
 </project>
