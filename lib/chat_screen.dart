@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'question_data.dart';
-import 'widgets.dart';
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:markdown_widget/config/all.dart';
 import 'dart:convert';
 import 'package:markdown_widget/widget/markdown.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class ChatScreen extends StatefulWidget {
   final String career;
@@ -23,24 +21,17 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _messageController = TextEditingController();
-  final _exportWAController = TextEditingController();
-  final _exportEmailController = TextEditingController();
   var _awaitingResponse = false;
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
   final List<MessageBubble> _chatHistory = [];
   List<String> loadingPhrases = [
-    'Working on it, one sec.',
-    'I\'ll get back to you on that.',
-    'Just a moment, please.',
-    'Let me check on that.',
-    'I\'m almost there.',
-    'Hang tight.',
-    'Coming right up.',
-    'I\'m on it.',
-    'Well.. well that\'s interesting.',
-    'Be right back.',
-    'Just a sec, I\'m buffering.'
+    'Loading...',
+    'Working on it...',
+    'Just a moment please.',
+    'Hold on for a while...',
+    'We\'ll get that for you',
+    'Just in a moment...'
   ];
 
   @override

@@ -24,9 +24,7 @@ class _StartScreenState extends State<StartScreen> {
             borderRadius: const BorderRadius.vertical(bottom: Radius.circular(175)),
             child: Builder(
               builder: (context) {
-                return Stack(alignment: Alignment.center, children: [
-
-                ]);
+                return Stack(alignment: Alignment.center, children: []);
               }
             ),
           ),
@@ -38,9 +36,9 @@ class _StartScreenState extends State<StartScreen> {
               children: [
                 Text('Welcome to', style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
                 const SizedBox(height: 10),
-                Text('skillr.io!', style: TextStyle(color: clrSchm.primary, fontSize: 36, fontWeight: FontWeight.w700)),
+                Text('skillr.io', style: TextStyle(color: clrSchm.primary, fontSize: 46, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 10),
-                Text('First, Let us commence by gathering pertinent information about you to better understand your background and preferences.',style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
+                Text('First, Let us get started by knowing you better.',style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
               ],
             ),
           ),
@@ -62,6 +60,7 @@ class _StartScreenState extends State<StartScreen> {
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) => const QuestionScreen(),
             transitionDuration: const Duration (milliseconds: 1000),
+            
             // reverseTransitionDuration: const Duration(milliseconds: 2000) ,
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               var screenSize = MediaQuery.of(context).size;
@@ -70,14 +69,17 @@ class _StartScreenState extends State<StartScreen> {
                   radius: animation.drive(Tween(begin: 0.0, end: screenSize.height * 1.5)).value,
                   center: Offset(screenSize.width/2, screenSize.height-100),
                 ),
+                
                 child: child,
               );
             }
           ),
         ),
+        
         style: bottomLargeButton(context),
         child: const Text('Proceed', style: TextStyle(fontSize: 20)),
       ),
+      
     );
   }
 }

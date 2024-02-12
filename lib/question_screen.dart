@@ -227,7 +227,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
       ),
       // Submit button
       bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(vertical: 46, horizontal: 16),
+        margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         width: double.infinity,
         child: ElevatedButton(
             onPressed: () {

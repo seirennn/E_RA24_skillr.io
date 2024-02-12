@@ -25,17 +25,12 @@ class _ResultScreenState extends State<ResultScreen>
   late Future<ResultData> futureResult;
   late String systemString, userString;
   List<String> loadingPhrases = [
-    'Working on it, one sec.',
-    'I\'ll get back to you on that.',
+    'Loading...',
+    'Working on it...',
     'Just a moment, please.',
-    'Let me check on that.',
-    'I\'m almost there.',
-    'Hang tight.',
-    'Coming right up.',
-    'Well.. well that\'s interesting.',
-    'I\'m on it.',
-    'Be right back.',
-    'Just a sec, I\'m buffering.'
+    'Hold on for a while...',
+    'We\'ll get that for you',
+    'Just in a moment...'
   ];
 
   @override
@@ -43,10 +38,10 @@ class _ResultScreenState extends State<ResultScreen>
     super.initState();
 
     systemString = """
-      You are a super thoughtful course recommender for grade 10-12 students.
-      You read data given to you in json format and ONLY reply in json format.
-      You recommend 5 courses based on input json and provide a very enthusiastic and short reasoning for each course in 5-10 words.
-      Below your reasoning, u specify 3-5 skills (with short words) that should be polished to succeed on that course.
+      You serve as a highly considerate course advisor catering to grade 10-12 students and also different users with diverse level of experiences,
+      You analyze data presented in json format and exclusively respond in json format.
+      Presenting 5 courses aligned with the input json, accompanied by vibrant and concise justifications in 5-10 words each.
+      Following each rationale, outline 3-5 essential skills (expressed briefly) crucial for success in each recommended course.
       The output should be in this exact same format:
       {\"course1name\": [\"reasoning1\", \"Skills Required: skill1, skill2, skill3\"], \"course2name\": [\"reasoning2\", \"Skills Required: skill1, skill2, skill3, skill4, skill5\"],....}
       Here's an example output format for u to use to base ur reply on-
@@ -125,7 +120,7 @@ class _ResultScreenState extends State<ResultScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Result Screen'),
+        title: const Text('Best career options'),
       ),
       body: Center(
         child: FutureBuilder<ResultData>(
