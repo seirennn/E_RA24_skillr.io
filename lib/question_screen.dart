@@ -75,9 +75,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
           fontFamily: 'TeXGyreBonum',
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
+                            color: Colors.white, // Set text color to white 
         ),
         centerTitle: true,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 24, 22, 26),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
@@ -133,10 +134,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           },
                             child: Text(qns.titles[_index], style: TextStyle(fontSize: 26), key: ValueKey(_index)),
                           ),
-                          Text('Pick what describe you best~', style: TextStyle(fontSize: 14)),
+                          Text('Pick what describes you best', style: TextStyle(fontSize: 14)),
                         ],
                       )),
-                      Image.asset('assets/images/andy.gif', width: 70)
                     ],
                   ),
                 ),

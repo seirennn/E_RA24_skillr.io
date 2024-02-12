@@ -1,4 +1,3 @@
-// chat_screen.dart
 import 'dart:math';
 import 'question_data.dart';
 import 'widgets.dart';
@@ -125,7 +124,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<String> fetchResultFromBard(String message) async {
-    final apiKey = await rootBundle.loadString('assets/bard.key');
+    final apiKey = await rootBundle.loadString('assets/gemini.key');
     final endpoint =
         "https://generativelanguage.googleapis.com/v1beta2/models/chat-bison-001:generateMessage?key=$apiKey";
 
@@ -140,8 +139,8 @@ class _ChatScreenState extends State<ChatScreen> {
       body: jsonEncode({
         "prompt": {
           "context": '''
-            You are Sudipta, a very friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
-            You are trained to reject to answer questions that are too offtopic and reply in under 40-60 words unless more are needed.
+            You are Bappi, a very funny and friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
+            You are trained to reject to answer questions that are too offtopic and reply in under 40-70 words unless more are needed.
             You are chatting with a student who is interested in the career ["${widget.career}"] and so will speak only regarding it.
             The student asks you to tell them more about the career and provide some suggestions on what they should learn first.
             You respond to them with the most helpful information you can think of as well as base your answers on their previous
@@ -151,12 +150,12 @@ class _ChatScreenState extends State<ChatScreen> {
               "input": {"content": "Who are you."},
               "output": {
                 "content":
-                    "I'm Nero, a helpful career recommending bot. I've been trained to help you pick a career for your higher studies."
+                    "I'm Bappi, a helpful career recommending bot. I've been trained to help you with career guidance."
               }
             },
             {
               "input": {
-                "content": "Let's talk about smoething other than the career."
+                "content": "Let's talk about something other than the career."
               },
               "output": {
                 "content":
@@ -183,7 +182,7 @@ class _ChatScreenState extends State<ChatScreen> {
       final json = jsonDecode(response.body);
       debugPrint('Response: $json');
       if (json['filters'] != null) {
-        return "Whoops~ Looks like your response was too offtopic, so it was filtered due to reason [${json['filters'][0]['reason']}].\nLet's try again, shall we?";
+        return "BRUH! Looks like your response was too offtopic, so it was filtered due to reason [${json['filters'][0]['reason']}].\nLet's try again, shall we?";
       } else {
         return json['candidates'][0]['content'];
       }
@@ -200,64 +199,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Talk to Nero"),
+        title: const Text("Talk to BappiGPT"),
         backgroundColor: clrSchm.primaryContainer.withOpacity(0.2),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.share, color: clrSchm.onPrimary),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: const Text('Share Chat'),
-                    content: const Text('How would you like to share your conversation?'),
-                    actions: [
-                      TextField(
-                        controller: _exportWAController,
-                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                        decoration: textFormDecoration("Share Via WhatsApp", "Enter your WA Number", Icons.message_outlined, context: context).copyWith(
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.send),
-                            onPressed: () async {
-                              String number = _exportWAController.text;
-                              if (!number.startsWith('966')) number = '966$number';
-                              if (![9,12].contains(number.length)) return;
-                              Navigator.of(context).pop();
-                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Nero*: '}${message.content}').join('\n\n');
-                              await launchUrlString('https://wa.me/$number?text=${Uri.encodeComponent(chatHistory)}');
-                            },
-                          ),
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 24)),
-                      TextField(
-                        controller: _exportEmailController,
-                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.deny(RegExp(' '))],
-                        decoration: textFormDecoration("Share Via Email", "Enter your Email Address", Icons.email_outlined, context: context).copyWith(
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.send),
-                            onPressed: () async {
-                              String mail = _exportEmailController.text;
-                              if (!mail.contains(RegExp(r'@\w+\.\w+.*$'))) return;
-                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Nero*: '}${message.content}').join('\n\n');
-                              await launchUrlString('mailto:$mail?subject=Career Rec! Chat History&body=${Uri.encodeComponent(chatHistory)}');
-                            }
-                          )
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 16)),
-                      TextButton(
-                        child: const Text('Cancel'),
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
-        ],
+        actions: [],
       ),
       body: _chatHistory.isNotEmpty
           ? Center(
@@ -453,7 +397,7 @@ class MessageBubble extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isUserMessage ? 'You' : 'Nero',
+                  isUserMessage ? 'You' : 'Bappi',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],

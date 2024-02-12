@@ -20,12 +20,12 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        colorSchemeSeed: Colors.greenAccent,
-        scaffoldBackgroundColor: Colors.black,
+        colorSchemeSeed: Color.fromARGB(255, 46, 61, 96),
+        scaffoldBackgroundColor: Color.fromARGB(255, 20, 20, 26),
         useMaterial3: true,
       ),
       home: Scaffold(
-        backgroundColor: ColorScheme.fromSeed(seedColor: Colors.greenAccent)
+        backgroundColor: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 37, 52, 82))
             .onPrimaryContainer
             
             .withOpacity(0.3),

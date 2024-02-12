@@ -25,14 +25,7 @@ class _StartScreenState extends State<StartScreen> {
             child: Builder(
               builder: (context) {
                 return Stack(alignment: Alignment.center, children: [
-                  Image.asset(
-                    'assets/images/building_an_app.png',
-                    width: 600,
-                    fit: BoxFit.cover,
-                    color: Colors.white,
-                    colorBlendMode: BlendMode.difference,
-                  ),
-                  // Image.asset('assets/images/andy.gif', fit: BoxFit.cover),
+
                 ]);
               }
             ),
@@ -45,9 +38,9 @@ class _StartScreenState extends State<StartScreen> {
               children: [
                 Text('Welcome to', style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
                 const SizedBox(height: 10),
-                Text('Skillr.io!', style: TextStyle(color: clrSchm.primary, fontSize: 36, fontWeight: FontWeight.w700)),
+                Text('skillr.io!', style: TextStyle(color: clrSchm.primary, fontSize: 36, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 10),
-                Text('First, Let\'s get to know more about yourself!!',style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
+                Text('First, Let us commence by gathering pertinent information about you to better understand your background and preferences.',style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
               ],
             ),
           ),

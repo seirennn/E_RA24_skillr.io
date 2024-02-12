@@ -1,4 +1,3 @@
-// ignore_for_file: unnecessary_string_escapes, prefer_const_constructors
 
 import 'dart:convert';
 import 'dart:math';
@@ -219,10 +218,10 @@ class _ResultScreenState extends State<ResultScreen>
                                     borderRadius: BorderRadius.circular(15.0)),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(
+                                    gradient:const LinearGradient(
                                       colors: [
-                                        clrSchm.inversePrimary,
-                                        clrSchm.secondaryContainer
+                                        Color.fromARGB(255, 55, 71, 120),
+                                        Color.fromARGB(255, 55, 71, 120),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -263,7 +262,7 @@ class _ResultScreenState extends State<ResultScreen>
                                                 label: Text(skill.trim(),
                                                     style: TextStyle(
                                                         fontSize: 10)),
-                                                backgroundColor:
+                                                backgroundColor: 
                                                     clrSchm.primaryContainer,
                                               ),
                                           ],
