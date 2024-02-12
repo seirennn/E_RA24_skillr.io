@@ -26,7 +26,9 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: ColorScheme.fromSeed(seedColor: Colors.greenAccent)
             .onPrimaryContainer
+            
             .withOpacity(0.3),
+            
         
         body: Center(
           child: Container(
@@ -34,11 +36,15 @@ class MainApp extends StatelessWidget {
               color: Colors.black,
               borderRadius: BorderRadius.circular(8),
             ),
-            width: min(720, screenSize.width),
+            width: min(1000, screenSize.width),
             child: StartScreen(),
+            
           ),
+          
         ),
+        
       ),
     );
+    
   }
 }

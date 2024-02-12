@@ -6,6 +6,7 @@ import 'underconstruction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'result_screen.dart';
 import 'widgets.dart';
@@ -161,9 +162,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     child: Container(
                       alignment: Alignment.center,
                       width: min(560, screenSize.width * 0.9),
-                      height: Platform.isAndroid || Platform.isIOS
-                          ? screenSize.height * 0.45
-                          : max(60, 0.9582 * screenSize.height - 410), //using formula y=mx+c (slope intercept)
+                      height: kIsWeb
+    ? // web specific height
+      // Provide the desired web-specific height here
+      screenSize.height * 0.45
+    : Platform.isAndroid || Platform.isIOS
+        ? screenSize.height * 0.45
+        : max(60, 0.9582 * screenSize.height - 410),
+ //using formula y=mx+c (slope intercept)
                       padding: const EdgeInsets.all(8.0),
                       child: SingleChildScrollView(
                         child: Wrap(
