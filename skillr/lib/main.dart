@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'proceed_screen.dart';
-import 'proceed_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

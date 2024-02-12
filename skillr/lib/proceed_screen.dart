@@ -1,5 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'question_screen.dart';
+import 'package:skillr/underconstruction.dart';
 import 'widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +67,7 @@ class _StartScreenState extends State<StartScreen> {
       child: ElevatedButton(
         onPressed: () => Navigator.push(context, 
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => const QuestionScreen(),
+            pageBuilder: (context, animation, secondaryAnimation) => const UnderConstructionPage (), //Edit the Page Navigator
             transitionDuration: const Duration (milliseconds: 1000),
             // reverseTransitionDuration: const Duration(milliseconds: 2000) ,
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
