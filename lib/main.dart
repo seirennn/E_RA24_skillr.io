@@ -17,6 +17,7 @@ class MainApp extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
         colorSchemeSeed: Colors.greenAccent,
@@ -36,7 +37,7 @@ class MainApp extends StatelessWidget {
               color: Colors.black,
               borderRadius: BorderRadius.circular(8),
             ),
-            width: min(1000, screenSize.width),
+            width: min(720, screenSize.width),
             child: StartScreen(),
             
           ),

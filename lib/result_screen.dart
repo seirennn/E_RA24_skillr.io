@@ -100,7 +100,7 @@ class _ResultScreenState extends State<ResultScreen>
   Future<ResultData> fetchResultFromBard() async {
     final apiKey = await rootBundle.loadString('assets/gemini.key');
     final endpoint =
-        "https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=$apiKey";
+        "https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=$apiKey"; //reference: https://ai.google.dev/api/python/google/generativeai/GenerativeModel
     final response = await http.post(
       Uri.parse(endpoint),
       headers: {'Content-Type': 'application/json'},
