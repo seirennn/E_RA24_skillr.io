@@ -151,7 +151,7 @@ class _ChatScreenState extends State<ChatScreen> {
               "input": {"content": "Who are you."},
               "output": {
                 "content":
-                    "I'm Nero, a helpful career recommending bot. I've been trained to help you pick a career for your higher studies."
+                    "I'm Sudipta, a helpful career recommending bot. I've been trained to help you pick a career for your higher studies."
               }
             },
             {
@@ -221,10 +221,10 @@ class _ChatScreenState extends State<ChatScreen> {
                             icon: const Icon(Icons.send),
                             onPressed: () async {
                               String number = _exportWAController.text;
-                              if (!number.startsWith('966')) number = '966$number';
+                              if (!number.startsWith('91')) number = '91$number';
                               if (![9,12].contains(number.length)) return;
                               Navigator.of(context).pop();
-                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Nero*: '}${message.content}').join('\n\n');
+                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Sudipta*: '}${message.content}').join('\n\n');
                               await launchUrlString('https://wa.me/$number?text=${Uri.encodeComponent(chatHistory)}');
                             },
                           ),
@@ -240,7 +240,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             onPressed: () async {
                               String mail = _exportEmailController.text;
                               if (!mail.contains(RegExp(r'@\w+\.\w+.*$'))) return;
-                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Nero*: '}${message.content}').join('\n\n');
+                              String chatHistory = _chatHistory.map((message) => '${message.isUserMessage ? '*You*: ' : '*Sudipta*: '}${message.content}').join('\n\n');
                               await launchUrlString('mailto:$mail?subject=Career Rec! Chat History&body=${Uri.encodeComponent(chatHistory)}');
                             }
                           )
@@ -453,7 +453,7 @@ class MessageBubble extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isUserMessage ? 'You' : 'Nero',
+                  isUserMessage ? 'You' : 'Sudipta',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
