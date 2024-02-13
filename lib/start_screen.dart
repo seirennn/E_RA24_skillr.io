@@ -77,7 +77,7 @@ class _StartScreenState extends State<StartScreen> {
         ),
         
         style: bottomLargeButton(context),
-        child: const Text('Proceed', style: TextStyle(fontSize: 20)),
+        child: const Text('Get started', style: TextStyle(fontSize: 20)),
       ),
       
     );

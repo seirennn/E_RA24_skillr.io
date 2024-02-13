@@ -130,9 +130,10 @@ class _ChatScreenState extends State<ChatScreen> {
       body: jsonEncode({
         "prompt": {
           "context": '''
-            You are Bappi, a very funny and friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
+            You are Dara, a very funny and friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
             You are trained to reject to answer questions that are too offtopic and reply in under 40-70 words unless more are needed.
             You are chatting with a student who is interested in the career ["${widget.career}"] and so will speak only regarding it.
+            but you crack a joke at times and have a good sense of humour.
             The student asks you to tell them more about the career and provide some suggestions on what they should learn first.
             You respond to them with the most helpful information you can think of as well as base your answers on their previous
             questions and the answers they have provided in the following survey json:\n${widget.ans.toJson()}''',
@@ -141,7 +142,7 @@ class _ChatScreenState extends State<ChatScreen> {
               "input": {"content": "Who are you."},
               "output": {
                 "content":
-                    "I'm Bappi, a helpful career recommending bot. I've been trained to help you with career guidance."
+                    "I'm Dara, a helpful career recommending bot. I've been trained to help you with career guidance."
               }
             },
             {
@@ -173,7 +174,7 @@ class _ChatScreenState extends State<ChatScreen> {
       final json = jsonDecode(response.body);
       debugPrint('Response: $json');
       if (json['filters'] != null) {
-        return "BRUH! Looks like your response was too offtopic, so it was filtered due to reason [${json['filters'][0]['reason']}].\nLet's try again, shall we?";
+        return "Oops! Looks like your response was too offtopic, so it was filtered due to reason [${json['filters'][0]['reason']}].\nLet's try again, shall we?";
       } else {
         return json['candidates'][0]['content'];
       }
@@ -190,7 +191,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Talk to BappiGPT"),
+        title: const Text("Talk to Dara"),
         backgroundColor: clrSchm.primaryContainer.withOpacity(0.2),
         actions: [],
       ),
@@ -388,7 +389,7 @@ class MessageBubble extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isUserMessage ? 'You' : 'Bappi',
+                  isUserMessage ? 'You' : 'Dara',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
