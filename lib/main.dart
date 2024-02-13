@@ -37,7 +37,6 @@ class MainApp extends StatelessWidget {
               color: Colors.black,
               borderRadius: BorderRadius.circular(8),
             ),
-            width: min(720, screenSize.width),
             child: StartScreen(),
             
           ),

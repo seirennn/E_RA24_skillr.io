@@ -2,188 +2,125 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'question_screen.dart';
 import 'widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'components/animated_btn.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({super.key});
+  const StartScreen({Key? key}) : super(key: key);
 
   @override
   State<StartScreen> createState() => _StartScreenState();
 }
 
 class _StartScreenState extends State<StartScreen> {
+  late RiveAnimationController _btnAnimationController;
+
+  bool isShowSignInDialog = false;
+
+  @override
+  void initState() {
+    _btnAnimationController = OneShotAnimation(
+      "active",
+      autoplay: false,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final clrSchm = Theme.of(context).colorScheme;
-
     return Scaffold(
-      backgroundColor: clrSchm.surface,
-      body: Center(
-        child: Column(children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(175)),
-            child: Builder(
-              builder: (context) {
-                return Stack(alignment: Alignment.center, children: []);
-              }
+      body: Stack(
+        children: [
+          Positioned(
+            width: MediaQuery.of(context).size.width * 1.7,
+            left: 100,
+            bottom: 100,
+            child: Image.asset(
+              "assets/Backgrounds/Spline.png",
             ),
           ),
-          const SizedBox(height: 80),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Welcome to', style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
-                const SizedBox(height: 10),
-                Text('skillr.io', style: TextStyle(color: clrSchm.primary, fontSize: 46, fontWeight: FontWeight.w700)),
-                const SizedBox(height: 10),
-                Text('First, Let us get started by knowing you better.',style: TextStyle(color: clrSchm.primary, fontSize: 24,fontWeight: FontWeight.w500)),
-              ],
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: const SizedBox(),
             ),
           ),
-        ]),
-      ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(vertical: 46, horizontal: 16),
-        width: double.infinity,
-        child: preoceedButton(context),
-      ),
-    );
-  }
+          const RiveAnimation.asset(
+            "assets/RiveAssets/shapes.riv",
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+              child: const SizedBox(),
+            ),
+          ),
+          AnimatedPositioned(
+            top: isShowSignInDialog ? -50 : 0,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            duration: const Duration(milliseconds: 260),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    const SizedBox(
+                      width: 260,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Explore, Learn & Elevate",
+                            style: TextStyle(
+                              fontSize: 60,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "Poppins",
+                              height: 1.2,
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            "Let us get started by knowing and understanding you better. We will be asking you questions based on your interests.",
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(flex: 2),
+                    AnimatedBtn(
+                      btnAnimationController: _btnAnimationController,
+                      press: () {
+                        _btnAnimationController.isActive = true;
 
-  Widget preoceedButton(BuildContext context) {
-    return SizedBox(
-      height: 58,
-      child: ElevatedButton(
-        onPressed: () => Navigator.push(context, 
-          PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => const QuestionScreen(),
-            transitionDuration: const Duration (milliseconds: 1000),
-            
-            // reverseTransitionDuration: const Duration(milliseconds: 2000) ,
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              var screenSize = MediaQuery.of(context).size;
-              return ClipPath(
-                clipper: CircleRevealClipper(
-                  radius: animation.drive(Tween(begin: 0.0, end: screenSize.height * 1.5)).value,
-                  center: Offset(screenSize.width/2, screenSize.height-100),
+                        Future.delayed(
+                          const Duration(milliseconds: 800),
+                          () {
+                            setState(() {
+                              isShowSignInDialog = true;
+                            });
+                            // Navigation to QuestionScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => QuestionScreen()),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24),
+                      child: Text(
+                        "Elevate your career journey with AI-driven recommendations and personalized insights, backed by a seamless chatbot experience.",
+                      ),
+                    )
+                  ],
                 ),
-                
-                child: child,
-              );
-            }
+              ),
+            ),
           ),
-        ),
-        
-        style: bottomLargeButton(context),
-        child: const Text('Get started', style: TextStyle(fontSize: 20)),
-      ),
-      
-    );
-  }
-}
-
-class CircleRevealClipper extends CustomClipper<Path> {
-  // ignore: prefer_typing_uninitialized_variables
-  final center, radius;
-
-  CircleRevealClipper({this.center, this.radius});
-
-  @override
-  Path getClip(Size size) {
-    return Path()
-      ..addOval(Rect.fromCircle(
-        radius: radius, center: center
-      )
-    );
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
-}
-
-class ThemeSelectionPage extends StatelessWidget {
-  const ThemeSelectionPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final clrSchm = Theme.of(context).colorScheme;
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: const Icon(Icons.arrow_back_rounded)),
-        title: const Text('Appearance', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ValueListenableBuilder<AdaptiveThemeMode?>(
-              valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
-              builder: (_, mode, child) {
-                return Text(
-                  'App Theme',
-                  style: TextStyle(
-                    color: mode?.isLight ?? true ? clrSchm.onBackground : clrSchm.background,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w500,
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            ValueListenableBuilder<AdaptiveThemeMode?>(
-              valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
-              builder: (_, mode, child) {
-                return GestureDetector(
-                  onTap: () {
-                    AdaptiveTheme.of(context).setLight();
-                  },
-                  child: Container(
-                    width: 100,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      color: clrSchm.primaryContainer,
-                      borderRadius: const BorderRadius.all(Radius.circular(15)),
-                      border: Border.all(
-                        color: mode?.isLight ?? false ? clrSchm.primary : clrSchm.primaryContainer,
-                        width: 7,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            ValueListenableBuilder<AdaptiveThemeMode?>(
-              valueListenable: AdaptiveTheme.of(context).modeChangeNotifier,
-              builder: (_, mode, child) {
-                return GestureDetector(
-                  onTap: () {
-                    AdaptiveTheme.of(context).setDark();
-                  },
-                  child: Container(
-                    width: 100,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      color: clrSchm.primaryContainer,
-                      borderRadius: const BorderRadius.all(Radius.circular(15)),
-                      border: Border.all(
-                        color: mode?.isDark ?? false ? clrSchm.primary : clrSchm.primaryContainer,
-                        width: 7,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
