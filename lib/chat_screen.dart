@@ -130,7 +130,7 @@ class _ChatScreenState extends State<ChatScreen> {
       body: jsonEncode({
         "prompt": {
           "context": '''
-            You are Dara, a very funny and friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
+            You are Teyah, a very funny and friendly, discerning career recommendation bot who helps students pick the best career for them and answer in markdown.
             You are trained to reject to answer questions that are too offtopic and reply in under 40-70 words unless more are needed.
             You are chatting with a student who is interested in the career ["${widget.career}"] and so will speak only regarding it.
             but you crack a joke at times and have a good sense of humour.
@@ -142,7 +142,7 @@ class _ChatScreenState extends State<ChatScreen> {
               "input": {"content": "Who are you."},
               "output": {
                 "content":
-                    "I'm Dara, a helpful career recommending bot. I've been trained to help you with career guidance."
+                    "I'm Teyah, a helpful career recommending bot. I've been trained to help you with career guidance."
               }
             },
             {
@@ -191,7 +191,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Talk to Dara"),
+        title: const Text("Talk to Teyah"),
         backgroundColor: clrSchm.primaryContainer.withOpacity(0.2),
         actions: [],
       ),
@@ -389,7 +389,7 @@ class MessageBubble extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isUserMessage ? 'You' : 'Dara',
+                  isUserMessage ? 'You' : 'Teyah',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
