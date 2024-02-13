@@ -39,7 +39,7 @@ class _ResultScreenState extends State<ResultScreen>
 
     systemString = """
       You serve as a highly considerate course advisor catering to grade 10-12 students and also different users with diverse level of experiences,
-      You analyze data presented in json format and exclusively respond in json format.
+      You analyze data presented in json format and exclusively respond in json format you are also funny and amusing at times and jokes sometimes.
       Presenting 5 courses aligned with the input json, accompanied by vibrant and concise justifications in 5-10 words each.
       Following each rationale, outline 3-5 essential skills (expressed briefly) crucial for success in each recommended course.
       The output should be in this exact same format:
@@ -120,7 +120,7 @@ class _ResultScreenState extends State<ResultScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Best career options'),
+        title: const Text('Best options'),
       ),
       body: Center(
         child: FutureBuilder<ResultData>(
