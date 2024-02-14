@@ -9,11 +9,12 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:rive/rive.dart';
 import 'dart:ui';
-
 import 'underconstruction.dart';
 import 'result_screen.dart';
-import 'widgets.dart';
 import 'question_data.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({Key? key});
@@ -132,11 +133,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         'Step $_step out of $_totSteps',
                         style: TextStyle(fontSize: 12.0, fontFamily: 'Poppins'),
                       ),
-                      leading: IconButton(
-                          icon: Icon(Icons.arrow_back),
+                      leading: CupertinoButton(
+                          child: Icon(CupertinoIcons.back),
                           onPressed: () => gotoStep(--_step)),
-                      trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward),
+                      trailing: CupertinoButton(
+                          child: Icon(CupertinoIcons.forward),
                           onPressed: () => gotoStep(++_step)),
                       barRadius: Radius.circular(50),
                       backgroundColor: Theme.of(context)
