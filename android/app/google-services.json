@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "333274558089",
+    "firebase_url": "https://skillr-io-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "skillr-io",
+    "storage_bucket": "skillr-io.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333274558089:android:758175b7ea99020cf1a058",
+        "android_client_info": {
+          "package_name": "com.example.career_rec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_jE4JpJdodAoYmXAj3wqQasQvL69lxO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333274558089:android:3af2e169cbb74b6df1a058",
+        "android_client_info": {
+          "package_name": "com.example.flutter_upgrde_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_jE4JpJdodAoYmXAj3wqQasQvL69lxO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333274558089:android:fc9f24efdc2e3825f1a058",
+        "android_client_info": {
+          "package_name": "skillr.io"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_jE4JpJdodAoYmXAj3wqQasQvL69lxO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

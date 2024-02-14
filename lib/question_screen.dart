@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'components/animated_btn.dart';
+import 'package:rive/rive.dart';
+import 'dart:ui';
 
 import 'result_screen.dart';
 import 'widgets.dart';
@@ -72,7 +75,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
       appBar: AppBar(
         title: Text('SKLR'),
         titleTextStyle: TextStyle(
-          fontFamily: 'TeXGyreBonum',
+          fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
                             color: Colors.white, // Set text color to white 
@@ -95,7 +98,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
               lineHeight: 18.0,
               percent: _step / _totSteps,
               center: Text('Step $_step out of $_totSteps',
-                  style: TextStyle(fontSize: 12.0)),
+                  style: TextStyle(fontSize: 12.0, fontFamily:'Poppins')
+                  
+                  ),
+
+                  
               leading: IconButton(
                   icon: Icon(Icons.arrow_back),
                   onPressed: () => gotoStep(--_step)),
@@ -134,7 +141,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           },
                             child: Text(qns.titles[_index], style: TextStyle(fontSize: 26), key: ValueKey(_index)),
                           ),
-                          Text('Pick what describes you best', style: TextStyle(fontSize: 14)),
+                          Text('Pick what describes you best', style: TextStyle(fontSize: 14, fontFamily: 'Poppins')),
                         ],
                       )),
                     ],
@@ -241,6 +248,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
             style: bottomLargeButton(context),
             child: Text('Submit', style: TextStyle(fontSize: 20))),
       ),
+      
     );
+    
   }
 }

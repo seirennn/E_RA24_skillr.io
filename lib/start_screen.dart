@@ -1,10 +1,7 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'question_screen.dart';
-import 'widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'dart:ui';
-import 'package:flutter/material.dart';
 import 'components/animated_btn.dart';
 
 class StartScreen extends StatefulWidget {
@@ -63,7 +60,7 @@ class _StartScreenState extends State<StartScreen> {
             duration: const Duration(milliseconds: 260),
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -76,7 +73,7 @@ class _StartScreenState extends State<StartScreen> {
                             "Explore, Learn & Elevate",
                             style: TextStyle(
                               fontSize: 60,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w800,
                               fontFamily: "Poppins",
                               height: 1.2,
                             ),

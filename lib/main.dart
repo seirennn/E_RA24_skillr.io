@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:math';
 
 import 'start_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
