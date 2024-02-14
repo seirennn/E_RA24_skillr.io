@@ -53,7 +53,7 @@ fonts:
       fonts:
         - asset: fonts/texgyrebonum.ttf
 
-    - family: Intel
+    - family: Inter
       fonts: 
        - asset: fonts/Inter-Regular.ttf
        - asset: fonts/Inter-SemiBold.otf

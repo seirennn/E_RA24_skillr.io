@@ -54,8 +54,8 @@ ButtonStyle bottomLargeButton(context) {
     backgroundColor: MaterialStateProperty.all<Color>(
         Theme.of(context).colorScheme.primaryContainer),
     padding: MaterialStateProperty.all<EdgeInsets>(
-        const EdgeInsets.symmetric(vertical: 16)),
+        const EdgeInsets.symmetric(vertical: 14)),
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
   );
 }

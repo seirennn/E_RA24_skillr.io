@@ -89,6 +89,7 @@ class _StartScreenState extends State<StartScreen> {
                     AnimatedBtn(
                       btnAnimationController: _btnAnimationController,
                       press: () {
+                        
                         _btnAnimationController.isActive = true;
 
                         Future.delayed(
@@ -107,9 +108,9 @@ class _StartScreenState extends State<StartScreen> {
                       },
                     ),
                     const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24),
+                      padding: EdgeInsets.symmetric(vertical: 1),
                       child: Text(
-                        "Elevate your career journey with AI-driven recommendations and personalized insights, backed by a seamless chatbot experience.",
+                        "\nElevate your career journey with AI-driven recommendations and personalized insights, backed by a seamless chatbot experience.",
                       ),
                     )
                   ],

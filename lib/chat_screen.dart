@@ -193,7 +193,8 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         title: const Text("Talk to Teyah"),
         backgroundColor: clrSchm.primaryContainer.withOpacity(0.2),
-        actions: [],
+        actions: [
+        ],
       ),
       body: _chatHistory.isNotEmpty
           ? Center(
